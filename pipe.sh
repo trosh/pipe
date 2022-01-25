@@ -24,4 +24,5 @@ esac
 
 tmppipe=/tmp/pipe.$$$ext
 cat > $tmppipe # Redirect stdin to file
+trap 'rm "$tmppipe"' EXIT
 $1 $prefix$tmppipe # Run command on file
